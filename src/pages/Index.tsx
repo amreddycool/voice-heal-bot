@@ -1,11 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
-import { Mic, MicOff, Send, Volume2, VolumeX } from 'lucide-react';
+import { Mic, MicOff, Send, Volume2, VolumeX, Languages } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ChatMessage } from '@/components/ChatMessage';
 import { useSpeech } from '@/hooks/useSpeech';
 import { getMedicalResponse } from '@/utils/medicalChatbot';
 import { useToast } from '@/hooks/use-toast';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Message {
   role: 'user' | 'assistant';
@@ -16,6 +23,7 @@ const Index = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const [isSpeechEnabled, setIsSpeechEnabled] = useState(true);
+  const [language, setLanguage] = useState('en');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   
@@ -31,12 +39,12 @@ const Index = () => {
 
   // Send initial greeting
   useEffect(() => {
-    const greeting = getMedicalResponse('hello', []);
+    const greeting = getMedicalResponse('hello', [], language);
     setMessages([{ role: 'assistant', content: greeting }]);
     if (isSpeechEnabled) {
       setTimeout(() => speak(greeting), 500);
     }
-  }, []);
+  }, [language]);
 
   // Handle transcript from voice input
   useEffect(() => {
@@ -60,7 +68,7 @@ const Index = () => {
 
     // Get AI response
     setTimeout(() => {
-      const response = getMedicalResponse(textToSend, [...messages, userMessage]);
+      const response = getMedicalResponse(textToSend, [...messages, userMessage], language);
       const assistantMessage: Message = { role: 'assistant', content: response };
       setMessages(prev => [...prev, assistantMessage]);
       
@@ -104,18 +112,33 @@ const Index = () => {
               <p className="text-xs text-muted-foreground">Voice-enabled diagnosis support</p>
             </div>
           </div>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsSpeechEnabled(!isSpeechEnabled)}
-            className="rounded-full"
-          >
-            {isSpeechEnabled ? (
-              <Volume2 className="w-5 h-5 text-primary" />
-            ) : (
-              <VolumeX className="w-5 h-5 text-muted-foreground" />
-            )}
-          </Button>
+          <div className="flex items-center gap-2">
+            <Select value={language} onValueChange={setLanguage}>
+              <SelectTrigger className="w-[140px] h-9 bg-background">
+                <Languages className="w-4 h-4 mr-2" />
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="bg-popover">
+                <SelectItem value="en">English</SelectItem>
+                <SelectItem value="es">Español</SelectItem>
+                <SelectItem value="fr">Français</SelectItem>
+                <SelectItem value="de">Deutsch</SelectItem>
+                <SelectItem value="zh">中文</SelectItem>
+              </SelectContent>
+            </Select>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsSpeechEnabled(!isSpeechEnabled)}
+              className="rounded-full"
+            >
+              {isSpeechEnabled ? (
+                <Volume2 className="w-5 h-5 text-primary" />
+              ) : (
+                <VolumeX className="w-5 h-5 text-muted-foreground" />
+              )}
+            </Button>
+          </div>
         </div>
       </header>
 
