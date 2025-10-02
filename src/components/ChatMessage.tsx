@@ -1,4 +1,4 @@
-import { User, Bot } from 'lucide-react';
+import { User, Stethoscope } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ChatMessageProps {
@@ -16,7 +16,7 @@ export const ChatMessage = ({ role, content }: ChatMessageProps) => {
     )}>
       {!isUser && (
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-          <Bot className="w-5 h-5 text-white" />
+          <Stethoscope className="w-5 h-5 text-white" />
         </div>
       )}
       
