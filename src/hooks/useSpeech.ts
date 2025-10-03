@@ -6,6 +6,7 @@ interface UseSpeechReturn {
   startListening: () => void;
   stopListening: () => void;
   speak: (text: string) => void;
+  stopSpeaking: () => void;
   isSpeaking: boolean;
   isSupported: boolean;
 }
@@ -102,12 +103,20 @@ export const useSpeech = (): UseSpeechReturn => {
     }
   };
 
+  const stopSpeaking = () => {
+    if (synthRef.current) {
+      synthRef.current.cancel();
+      setIsSpeaking(false);
+    }
+  };
+
   return {
     isListening,
     transcript,
     startListening,
     stopListening,
     speak,
+    stopSpeaking,
     isSpeaking,
     isSupported,
   };

@@ -32,7 +32,8 @@ const Index = () => {
     transcript, 
     startListening, 
     stopListening, 
-    speak, 
+    speak,
+    stopSpeaking,
     isSpeaking,
     isSupported 
   } = useSpeech();
@@ -92,6 +93,10 @@ const Index = () => {
     if (isListening) {
       stopListening();
     } else {
+      // Stop speaking if currently speaking
+      if (isSpeaking) {
+        stopSpeaking();
+      }
       startListening();
     }
   };
