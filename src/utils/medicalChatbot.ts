@@ -87,6 +87,17 @@ const translations = {
     stomach: "你可能有胃肠炎。保持水分充足，可以的话吃清淡食物，多休息。如果症状持续超过48小时或出现脱水迹象，请就医。",
     respiratory: "你的症状表明有呼吸道感染。请尽快就医进行适当评估。同时，注意休息并监测呼吸情况。如果呼吸困难加重，请寻求急救。",
     generic: "虽然我可以提供一般信息，但这些症状应由医疗专业人员评估以获得准确诊断和适当治疗。如果症状严重或恶化，请立即就医。"
+  },
+  sw: {
+    greeting: "Habari! Mimi ni Msaidizi wako wa Kimatibabu wa AI. Niko hapa kukusaidia kuelewa dalili zako. Tafadhali eleza dalili unazopata, na nitakupa mwongozo wa awali. Kumbuka, hii sio mbadala wa ushauri wa kimatibabu wa kitaalamu.",
+    emergency: "⚠️ Dalili hizi zinaonekana kuwa mbaya. Tafadhali tafuta msaada wa haraka kwa kupiga simu ya dharura au kwenda hospitali ya dharura iliyo karibu. Usisite.",
+    askMore: "Ningependa kukusaidia vizuri zaidi. Je, unaweza kueleza dalili zako kwa undani zaidi? Kwa mfano, je, una homa, kikohozi, maumivu ya kichwa, kichefuchefu, au dalili zingine maalum?",
+    disclaimer: "⚕️ Tafadhali kumbuka: Hii ni tathmini ya awali. Kwa uchunguzi sahihi na matibabu, tafadhali wasiliana na mtaalamu wa afya aliye na sifa.",
+    flu: "Unaweza kuwa na homa ya mafua. Napendekeza kupumzika, kunywa maji mengi, na kutumia dawa za kupunguza homa zinazouzwa bila dawa ya daktari. Ikiwa dalili zinaendelea kuwa mbaya au kudumu zaidi ya siku 7, tafadhali wasiliana na mtoa huduma za afya.",
+    cold: "Dalili zako zinaonyesha homa ya kawaida. Pumzika vizuri, nywa vinywaji vya moto, na fikiria kutumia vidonge vya koo. Homa nyingi huisha ndani ya siku 7-10. Ikiwa dalili zinaendelea kuwa mbaya, wasiliana na daktari.",
+    stomach: "Unaweza kuwa na mdudu wa tumbo au gastroenteritis. Endelea kunywa maji, kula chakula cha kawaida unapoweza, na pumzika. Ikiwa dalili zinaendelea zaidi ya masaa 48 au unaonyesha dalili za ukosefu wa maji mwilini, tafuta msaada wa kimatibabu.",
+    respiratory: "Dalili zako zinaonyesha maambukizo ya njia ya kupumua. Tafadhali tafuta msaada wa kimatibabu hivi karibuni kwa tathmini sahihi. Wakati huo, pumzika na fuatilia upumuaji wako. Ikiwa ugumu wa kupumua unaendelea kuwa mbaya, tafuta msaada wa dharura.",
+    generic: "Ingawa ninaweza kutoa taarifa za jumla, dalili hizi zinapaswa kutathminiwa na mtaalamu wa afya kwa uchunguzi sahihi na matibabu sahihi. Ikiwa dalili zako ni mbaya au zinaendelea kuwa mbaya, tafuta msaada wa kimatibabu mara moja."
   }
 };
 

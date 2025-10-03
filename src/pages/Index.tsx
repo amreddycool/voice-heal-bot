@@ -129,6 +129,7 @@ const Index = () => {
                 <SelectItem value="fr">Français</SelectItem>
                 <SelectItem value="de">Deutsch</SelectItem>
                 <SelectItem value="zh">中文</SelectItem>
+                <SelectItem value="sw">Kiswahili</SelectItem>
               </SelectContent>
             </Select>
             <Button
